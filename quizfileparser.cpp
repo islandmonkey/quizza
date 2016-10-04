@@ -1,13 +1,23 @@
 #include "quizfileparser.h"
 #include "quizzawindow.h"
 
-quizfileparser::quizfileparser(QObject *parent) : QObject(parent)
+QuizFileParser::QuizFileParser(QObject *parent) : QObject(parent)
 {
 
 }
 
-void quizfileparser::checkValidity()
+void QuizFileParser::checkValidity(QString *references)
 {
-    
+    references = QuizzaWindow.file;
+    if(!references->contains("-QZCONF COMMENCE-"))
+    {
+        QMessageBox dialog;
+        dialog.setGeometry(100,100,100,100);
+        dialog.setWindowTitle("No way hosay!");
+        dialog.setText("This file is wrongly corrupted. Please check it and load again.");
+        dialog.setIcon(QMessageBox::Warning);
+        dialog.activateWindow();
+        return;
+    }
 }
 

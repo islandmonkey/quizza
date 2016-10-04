@@ -18,12 +18,19 @@ QuizzaWindow::~QuizzaWindow()
 
 void QuizzaWindow::selectQuiz()
 {
-    if() {
-        ui->pushButton->isChecked();
+    if(ui->pushButton->isChecked()) {
+        filename->setFileMode(QFileDialog::AnyFile);
+        filename->setNameFilter(tr("Quizza config files (*.qzconf)"));
+        filename->setViewMode(QFileDialog::List);
+        if(filename->exec())
+        {
+            namesOfFiles = filename->selectedFiles();
+        }
+        file->fileName() = namesOfFiles;
+        file->open(1,QIODevice::ReadWrite);
+        QuizFileParser::checkValidity();
     }
-    fileName::getOpenFileName(this,
-        tr("Open quiz"), "/home/aidan", tr("Quizza config files (*.qza)"));
-
+    
 
 
 

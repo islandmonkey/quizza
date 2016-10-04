@@ -2,12 +2,14 @@
 #define QUIZFILEPARSER_H
 
 #include <QObject>
+#include <QMessageBox>
 
-class quizfileparser : public QObject
+class QuizFileParser : public QObject
 {
     Q_OBJECT
 public:
-    explicit quizfileparser(QObject *parent = 0);
+    explicit QuizFileParser(QObject *parent = 0);
+    void checkValidity();
 
 signals:
 

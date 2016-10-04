@@ -6,6 +6,8 @@
 #include <QTextEdit>
 #include <QString>
 #include <QFileDialog>
+#include <QFile>
+#include <QStringList>
 
 namespace Ui {
 class QuizzaWindow;
@@ -20,6 +22,9 @@ public:
     ~QuizzaWindow();
     QString quiztitle;
     QFileDialog *filename;
+    QString namesOfFiles;
+    QFile *file;
+    void selectQuiz();
 
 private:
     Ui::QuizzaWindow *ui;
