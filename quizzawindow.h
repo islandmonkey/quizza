@@ -8,6 +8,8 @@
 #include <QFileDialog>
 #include <QFile>
 #include <QStringList>
+#include <QTextStream>
+#include "quizfileparser.h"
 
 namespace Ui {
 class QuizzaWindow;
@@ -22,8 +24,6 @@ public:
     ~QuizzaWindow();
     QString quiztitle;
     QFileDialog *filename;
-    QString namesOfFiles;
-    QFile *file;
     void selectQuiz();
 
 private:
