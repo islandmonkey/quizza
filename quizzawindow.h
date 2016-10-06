@@ -3,13 +3,13 @@
 
 #include <QMainWindow>
 #include <QPushButton>
-#include <QTextEdit>
+#include <QTextBrowser>
 #include <QString>
 #include <QFileDialog>
 #include <QFile>
 #include <QStringList>
 #include <QTextStream>
-#include "quizfileparser.h"
+#include <QMessageBox>
 
 namespace Ui {
 class QuizzaWindow;
@@ -25,6 +25,13 @@ public:
     QString quiztitle;
     QFileDialog *filename;
     void selectQuiz();
+    bool checkIsValid();
+    QString namesOfFiles;
+    QString line;
+    QFile *file;
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::QuizzaWindow *ui;
